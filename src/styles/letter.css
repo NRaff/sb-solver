@@ -1,0 +1,20 @@
+.letter {
+  border-radius: 5px;
+  height: 5vh;
+  width: 30px;
+  background-color: #E6E6E6;
+  aspect-ratio: 1;
+  border-style: none;
+  font-size: 1.875em;
+  padding-left: 3px;
+  padding-right: 3px;
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 5px;
+}
+
+.req-letter {
+  background-color: #F2DB50;
+}
