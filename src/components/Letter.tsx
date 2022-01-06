@@ -11,9 +11,22 @@ function updateRequired(e: any, state: any, setter: Function) {
 
 function updateLetters(e: any, state: any, setter: Function) {
   e.preventDefault()
-  setter(e.currentTarget.value)
-  state.searchLetters += e.currentTarget.value
-  moveToNext(e)
+  const reqLetter = state.requiredLetter
+  const letters = state.searchLetters
+  const allLetters = [reqLetter].concat(letters.split(''))
+  const oldLetter = letters[e.currentTarget.tabIndex - 2]
+  const newLetter = e.currentTarget.value
+  if (!allLetters.includes(newLetter)) {
+    setter(e.currentTarget.value)
+    if(e.currentTarget.value !== "") {
+      if (oldLetter) {
+        state.searchLetters = state.searchLetters.replace(oldLetter, newLetter)
+      } else {
+        state.searchLetters += e.currentTarget.value
+      }
+      moveToNext(e)
+    }
+  }
 }
 
 function moveToNext(e: any) {
