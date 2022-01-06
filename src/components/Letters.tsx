@@ -12,6 +12,7 @@ function setLetters(num: number) {
       <Letter
         required={i === 0 ? true : false}
         tab={i + 1}
+        key={i}
       />
     )
   }

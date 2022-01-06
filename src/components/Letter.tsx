@@ -6,7 +6,18 @@ function updateRequired(e: any, state: any, setter: Function) {
   e.preventDefault()
   setter(e.currentTarget.value)
   state.requiredLetter = e.currentTarget.value
-  if(e.currentTarget.value !== "") {
+  moveToNext(e)
+}
+
+function updateLetters(e: any, state: any, setter: Function) {
+  e.preventDefault()
+  setter(e.currentTarget.value)
+  state.searchLetters += e.currentTarget.value
+  moveToNext(e)
+}
+
+function moveToNext(e: any) {
+  if (e.currentTarget.value !== "") {
     const nextID = e.currentTarget.tabIndex + 1
     const nextEle = document.getElementById(`letter-${nextID}`)
     nextEle?.focus()
@@ -28,7 +39,11 @@ function Letter({required, tab}:props) {
       placeholder="A"
       value={letter}
       maxLength={1}
-      onChange={e => updateRequired(e, details, setLetter)}
+      onChange={
+        e => required ? 
+        updateRequired(e, details, setLetter) : 
+        updateLetters(e, details, setLetter)
+      }
       tabIndex={tab}
       id={`letter-${tab}`}
     />
