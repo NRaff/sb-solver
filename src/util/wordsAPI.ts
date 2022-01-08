@@ -1,3 +1,4 @@
+import { fileURLToPath } from "url"
 import { API_KEY } from "../config/keys"
 
 const params = {
@@ -18,7 +19,11 @@ function setRegex(reqLetter: string, searchLetters: string) {
   const excludeLetters = alphas.filter((char: string) => {
     return (char !== reqLetter && !searchLetters.includes(char))
   })
-
 }
 
-export {}
+async function getWords() {
+  const data = await fetch('words_alpha.txt')
+  const wordBlob =  await data.text()
+  const words = new Set(wordBlob.split('\n'))
+  return words
+}

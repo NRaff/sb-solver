@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
+import getWords from './util/wordsAPI';
 
 const sbDetails = {
   requiredLetter: "",
@@ -10,6 +11,16 @@ const sbDetails = {
 }
 
 export const SBContext = React.createContext(sbDetails)
+
+declare global {
+  interface Window {
+    getWords: Function
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  window.getWords = getWords
+})
 
 ReactDOM.render(
   <React.StrictMode>
