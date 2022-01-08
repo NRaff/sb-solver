@@ -1,4 +1,3 @@
-import { fileURLToPath } from "url"
 import { API_KEY } from "../config/keys"
 
 const params = {
@@ -14,11 +13,14 @@ const auth = {
 
 async function searchWords(reqLetter: string, searchLetters: string) {
   const words = await getWords()
-  debugger
   const letters = (reqLetter + searchLetters).split('')
   const availableWords = words.filter((word: string) => {
     const chars = word.split('')
-    return chars.every(char => letters.includes(char)) && chars.includes(reqLetter)
+    return (
+      chars.every(char => letters.includes(char)) && 
+      chars.includes(reqLetter) && 
+      chars.length >= 4
+    )
   })
   return availableWords
 }
