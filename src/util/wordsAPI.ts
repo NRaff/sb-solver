@@ -1,16 +1,3 @@
-import { API_KEY } from "../config/keys"
-
-const params = {
-  lettersmin: "lettersmin=",
-  lettersMax: "lettersMax=",
-  letterPattern: "letterPattern="
-}
-
-const auth = {
-  host: "wordsapiv1.p.rapidapi.com",
-  apiKey: API_KEY
-}
-
 async function searchWords(reqLetter: string, searchLetters: string) {
   const words = await getWords()
   const letters = (reqLetter + searchLetters).split('')
