@@ -1,5 +1,5 @@
 import React from "react";
-import Word from "./word";
+import Word from "./OneWord";
 
 interface props {
   words: any
