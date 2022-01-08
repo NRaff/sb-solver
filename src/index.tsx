@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
-import getWords from './util/wordsAPI';
+import searchWords from './util/wordsAPI';
 
 const sbDetails = {
   requiredLetter: "",
@@ -14,12 +14,13 @@ export const SBContext = React.createContext(sbDetails)
 
 declare global {
   interface Window {
-    getWords: Function
+    getWords: Function,
+    searchWords: Function
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.getWords = getWords
+  window.searchWords = searchWords
 })
 
 ReactDOM.render(

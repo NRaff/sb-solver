@@ -12,18 +12,22 @@ const auth = {
   apiKey: API_KEY
 }
 
-const alphabet = "abcdefghijklmnopqrstuvwxyz"
-
-function setRegex(reqLetter: string, searchLetters: string) {
-  const alphas = alphabet.split('')
-  const excludeLetters = alphas.filter((char: string) => {
-    return (char !== reqLetter && !searchLetters.includes(char))
+async function searchWords(reqLetter: string, searchLetters: string) {
+  const words = await getWords()
+  debugger
+  const letters = (reqLetter + searchLetters).split('')
+  const availableWords = words.filter((word: string) => {
+    const chars = word.split('')
+    return chars.every(char => letters.includes(char)) && chars.includes(reqLetter)
   })
+  return availableWords
 }
 
 async function getWords() {
   const data = await fetch('words_alpha.txt')
   const wordBlob =  await data.text()
-  const words = new Set(wordBlob.split('\n'))
+  const words = wordBlob.split('\r\n')
   return words
 }
+
+export default searchWords
