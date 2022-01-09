@@ -14,6 +14,11 @@ function setDisplayWords(state: any, setter: Function) {
     })
 }
 
+function isPanagram(state: any, word: string) {
+  const letters = (state.requiredLetter + state.searchLetters).split('')
+  return letters.every((letter: string) => word.includes(letter))
+}
+
 function Words() {
   const context = useContext(SBContext)
   const wordsDefault: Array<string> = []
@@ -22,7 +27,14 @@ function Words() {
     <section className="words-area">
       <HintButton handleClick={() => setDisplayWords(context,setWords)}/>
       <ul className="words">
-        {words.map(word => <Word word={word} />)}
+        {words.map(word => {
+          return (
+            <Word
+              word={word}
+              isPanagram={isPanagram(context, word)}
+            />
+          )
+        })}
       </ul>
     </section>
   )

@@ -1,12 +1,16 @@
 import React from "react";
 
 interface props {
-  word: string
+  word: string,
+  isPanagram: boolean
 }
 
-function Word({word}: props) {
+function Word({word, isPanagram}: props) {
   return (
-    <p className="word">{word}</p>
+    <section className={`word${isPanagram ? ' panagram' : ''}`}>
+      <p>{word}</p>
+    </section>
+    
   )
 }
 

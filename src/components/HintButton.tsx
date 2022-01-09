@@ -11,6 +11,8 @@ function HintButton({handleClick}: props) {
     <button
       className="hint-button"
       onClick={e => handleClick()}
+      tabIndex={8}
+      id="letter-8"
     >Get Words</button>
   )
 }

@@ -15,3 +15,7 @@ button {
 button:hover {
   background-color: whitesmoke;
 }
+
+button:focus {
+  outline: 2px solid #F2DB50;
+}
