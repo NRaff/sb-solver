@@ -15,6 +15,10 @@
   margin: 5px;
 }
 
+.letters {
+  margin: .5em;
+}
+
 .req-letter {
   background-color: #F2DB50;
 }

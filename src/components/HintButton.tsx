@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
-import { SBContext } from "..";
 import '../styles/button.css'
 
 interface props {
-  handleClick: Function
+  handleClick: Function,
+  id: number,
+  title: string
 }
 
-function HintButton({handleClick}: props) {
+function HintButton({handleClick, id, title}: props) {
   return (
     <button
       className="hint-button"
       onClick={e => handleClick()}
-      tabIndex={8}
-      id="letter-8"
-    >Get Words</button>
+      tabIndex={id}
+      id={`letter-${id}`}
+    >{title}</button>
   )
 }
 

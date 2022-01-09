@@ -10,7 +10,7 @@ function App() {
   const state = useContext(SBContext)
   return (
     <div className="App">
-      <h1>SB Solver</h1>
+      <h1>Spelling Bee Solver</h1>
       <Letters numLetters={7} />
       <Words />
     </div>

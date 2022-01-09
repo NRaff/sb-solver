@@ -14,6 +14,14 @@ function setDisplayWords(state: any, setter: Function) {
     })
 }
 
+function reset(setter: Function) {
+  const inputs = Array.from(document.getElementsByClassName('letter'))
+  inputs.forEach(letter => {
+    letter.setAttribute("value", "")
+  })
+  setter([])
+}
+
 function isPanagram(state: any, word: string) {
   const letters = (state.requiredLetter + state.searchLetters).split('')
   return letters.every((letter: string) => word.includes(letter))
@@ -25,13 +33,27 @@ function Words() {
   const [words, setWords] = useState(wordsDefault)
   return (
     <section className="words-area">
-      <HintButton handleClick={() => setDisplayWords(context,setWords)}/>
+      <section className="buttons">
+        <HintButton
+          handleClick={() => setDisplayWords(context, setWords)}
+          id={8}
+          title="Get Words"
+          key="Get Words"
+        />
+        <HintButton
+          handleClick={() => reset(setWords)}
+          id={9}
+          title="Reset"
+          key="Reset"
+        />
+      </section>
       <ul className="words">
-        {words.map(word => {
+        {words.map((word, idx) => {
           return (
             <Word
               word={word}
               isPanagram={isPanagram(context, word)}
+              key={idx}
             />
           )
         })}
