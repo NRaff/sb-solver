@@ -14,12 +14,14 @@ function setDisplayWords(state: any, setter: Function) {
     })
 }
 
-function reset(setter: Function) {
+function reset(context: any, setter: Function) {
   const inputs = document.getElementsByClassName('letter')
   for (let i=0; i<inputs.length; i++) {
     const letter = inputs[i] as HTMLInputElement
     letter.value = ""
   }
+  context.requiredLetter = ""
+  context.searchLetters = ""
   const firstLetter = document.getElementById("letter-1")
   firstLetter?.focus()
   setter([])
@@ -44,7 +46,7 @@ function Words() {
           key="Get Words"
         />
         <HintButton
-          handleClick={() => reset(setWords)}
+          handleClick={() => reset(context, setWords)}
           id={9}
           title="Reset"
           key="Reset"
