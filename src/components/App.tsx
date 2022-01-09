@@ -1,14 +1,9 @@
-import React, { useContext } from 'react';
-import logo from './logo.svg';
 import '../styles/App.css';
 import Letters from './Letters';
-import HintButton from './HintButton';
 import Words from './Words';
-import { SBContext } from '..';
 import Credits from './Credits';
 
 function App() {
-  const state = useContext(SBContext)
   return (
     <div className="App">
       <Credits />
