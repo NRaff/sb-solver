@@ -1,21 +1,14 @@
 import React, { useContext } from "react";
 import { SBContext } from "..";
-import searchWords from "../util/wordsAPI";
 
-function setWords(state: any) {
-  const reqLetter = state.requiredLetter
-  const searchLetters = state.searchLetters
-  searchWords(reqLetter, searchLetters)
-  .then(words => {
-    state.words = words
-  })
+interface props {
+  handleClick: Function
 }
 
-function HintButton() {
-  const state = useContext(SBContext)
+function HintButton({handleClick}: props) {
   return (
     <button
-      onClick={e => setWords(state)}
+      onClick={e => handleClick()}
     >Get Words</button>
   )
 }

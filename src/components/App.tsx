@@ -12,8 +12,7 @@ function App() {
     <div className="App">
       <h1>SB Solver</h1>
       <Letters numLetters={7} />
-      <HintButton />
-      <Words words={state.words}/>
+      <Words />
     </div>
   );
 }
