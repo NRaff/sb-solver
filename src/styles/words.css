@@ -1,0 +1,29 @@
+.words-area {
+  width: 100vw;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.words {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.word {
+  background-color: whitesmoke;
+  color: #333;
+  border-radius: 2.5em;
+  font-size: 1em;
+  min-width: 3.5em;
+  width: max-content;
+  min-height: 1.5em;
+  border: none;
+  letter-spacing: 0.01em;
+  margin: .5em;
+  padding: 3px;
+}

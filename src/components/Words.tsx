@@ -3,6 +3,7 @@ import { SBContext } from "..";
 import searchWords from "../util/wordsAPI";
 import HintButton from "./HintButton";
 import Word from "./OneWord";
+import "../styles/words.css"
 
 function setDisplayWords(state: any, setter: Function) {
   const reqLetter = state.requiredLetter
