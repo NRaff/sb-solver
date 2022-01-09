@@ -22,3 +22,7 @@
 .req-letter {
   background-color: #F2DB50;
 }
+
+.letter:focus {
+  outline: 2px solid #F2DB50;
+}
