@@ -15,10 +15,13 @@ function setDisplayWords(state: any, setter: Function) {
 }
 
 function reset(setter: Function) {
-  const inputs = Array.from(document.getElementsByClassName('letter'))
-  inputs.forEach(letter => {
-    letter.setAttribute("value", "")
-  })
+  const inputs = document.getElementsByClassName('letter')
+  for (let i=0; i<inputs.length; i++) {
+    const letter = inputs[i] as HTMLInputElement
+    letter.value = ""
+  }
+  const firstLetter = document.getElementById("letter-1")
+  firstLetter?.focus()
   setter([])
 }
 
