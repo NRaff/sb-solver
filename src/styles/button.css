@@ -1,0 +1,17 @@
+button {
+  color: #333;
+  background-color: white;
+  border-radius: 2.5em;
+  font-size: 1em;
+  min-width: 5.5em;
+  width: max-content;
+  min-height: 2.5em;
+  border: 1px solid #dcdcdc;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  margin: 1em;
+}
+
+button:hover {
+  background-color: whitesmoke;
+}
