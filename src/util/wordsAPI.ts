@@ -1,4 +1,4 @@
-import { API_KEY } from "../config/keys"
+import { API_KEY } from "../configuration/dictionaryKey"
 import axios from "axios"
 
 axios.defaults.baseURL = "https://dictionaryapi.com/api/v3/references/collegiate/json/"
