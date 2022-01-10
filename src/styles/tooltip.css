@@ -67,3 +67,14 @@
   text-align: left;
   text-transform: none;
 }
+
+.arrow-up {
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #F2DB50;
+  margin-left: 45%;
+  top: -10px;
+}
