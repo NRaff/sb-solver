@@ -1,14 +1,16 @@
 import React from "react";
+import Tooltip from "./Tooltip";
 
 interface props {
-  word: string,
+  wordObj: any,
   isPanagram: boolean
 }
 
-function Word({word, isPanagram}: props) {
+function Word({wordObj, isPanagram}: props) {
   return (
     <section className={`word${isPanagram ? ' panagram' : ''}`}>
-      <p>{word}</p>
+      <p>{wordObj.word}</p>
+      <Tooltip wordObj={wordObj} />
     </section>
     
   )

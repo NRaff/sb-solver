@@ -1,0 +1,11 @@
+.tooltip {
+  display: none;
+  position: absolute;
+}
+
+.word:hover .tooltip {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
+  font-size: .25em;
+}

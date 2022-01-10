@@ -57,7 +57,7 @@ function Words() {
         {words.map((word, idx) => {
           return (
             <Word
-              word={word.word}
+              wordObj={word}
               isPanagram={isPanagram(context, word.word)}
               key={idx}
             />
