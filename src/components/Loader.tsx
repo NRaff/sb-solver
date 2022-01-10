@@ -34,9 +34,12 @@ function Loader({letters}:props) {
   const [shuffledLetters, reshuffle] = useState(letters)
   useEffect(() => startLoading(shuffledLetters, reshuffle), [])
   return (
-    <h1 id="loader">
-      {shuffledLetters.split('').map((letter: string, idx: number) => <span key={idx}>{letter}</span>)}
-    </h1>
+    <section>
+      <h3>Loading...</h3>
+      <h1 id="loader">
+        {shuffledLetters.split('').map((letter: string, idx: number) => <span key={idx}>{letter}</span>)}
+      </h1>
+    </section>
   )
 }
 
