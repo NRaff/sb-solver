@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../styles/loader.css"
 
 interface props {
   letters: string
@@ -7,7 +8,7 @@ interface props {
 function shuffleLetters(letters: string, setLetters: Function) {
   const allLetters = letters.split('')
   console.log("did shuffle.")
-  setLetters(shuffle(allLetters))
+  setLetters(shuffle(allLetters).join(''))
 }
 
 export function shuffle(items: Array<string>) {
@@ -25,7 +26,7 @@ export function shuffle(items: Array<string>) {
 }
 
 function startLoading(letters: string, setLetters: Function) {
-  const shuffleInterval = setInterval(() => shuffleLetters(letters, setLetters), 200)
+  const shuffleInterval = setInterval(() => shuffleLetters(letters, setLetters), 400)
   return () => clearInterval(shuffleInterval)
 }
 
@@ -33,7 +34,9 @@ function Loader({letters}:props) {
   const [shuffledLetters, reshuffle] = useState(letters)
   useEffect(() => startLoading(shuffledLetters, reshuffle), [])
   return (
-    <h1 id="loader">{shuffledLetters}</h1>
+    <h1 id="loader">
+      {shuffledLetters.split('').map((letter: string, idx: number) => <span key={idx}>{letter}</span>)}
+    </h1>
   )
 }
 

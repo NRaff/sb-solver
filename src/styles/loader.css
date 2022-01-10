@@ -1,0 +1,10 @@
+#loader {
+  font-size: 4em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#loader span:nth-child(even) {
+  color: #F2DB50;
+  padding: 0px;
+}
