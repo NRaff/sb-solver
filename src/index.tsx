@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
-import {searchWords, getDefinition} from './util/wordsAPI';
+import {searchWords, getDefinition, getWordObjects, getDetails} from './util/wordsAPI';
 
 const sbDetails = {
   requiredLetter: "",
@@ -18,13 +18,17 @@ declare global {
     searchWords: Function,
     searchWord: Function,
     newSearch: Function,
-    getDefinition: Function
+    getDefinition: Function,
+    getWordObjects: Function,
+    getDetails: Function
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   window.searchWords = searchWords
   window.getDefinition = getDefinition
+  window.getWordObjects = getWordObjects
+  window.getDetails = getDetails
 })
 
 ReactDOM.render(
