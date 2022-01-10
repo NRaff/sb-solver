@@ -1,11 +1,69 @@
 .tooltip {
   display: none;
   position: absolute;
+  width: 70em;
+  min-height: 25em;
+  max-height: 60em;
+  z-index: 1;
+  background-color: whitesmoke;
+  border-radius: 1em;
+  border-radius: 1em;
+  font-size: .25em;
+  padding: 2em;
+  border: 2px solid #F2DB50;
+  box-shadow: 3px 5px 5px grey;
+  align-items: flex-start;
+  top: 13em;
+}
+
+.tooltip h2 {
+  font-weight: 700;
+  font-size: .5em;
+  height: max-content;
+  width: 100%;
+}
+
+.def-list {
+  height: 25em;
+  overflow: scroll;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .word:hover .tooltip {
   display: flex;
   flex-direction: column;
-  border-radius: 1em;
-  font-size: .25em;
+}
+
+.tooltip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.tooltip-item h3 {
+  font-size: .4em;
+  font-weight: 700;
+}
+
+.tooltip-item header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-style: italic;
+  width: 100%;
+}
+
+.definitions {
+  padding-left: 14px;
+  list-style: circle;
+  text-align: left;
+  text-transform: none;
 }

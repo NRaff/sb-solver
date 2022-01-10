@@ -11,7 +11,7 @@ function TooltipItem({definition}: props) {
       <h3>{variation}</h3>
       <header>
         <p>Pos. {pos}</p>
-        <p>Est. {date}</p>
+        {date ? <p>Est. {date}</p> : null }
       </header>
       <ul className="definitions">
         {definitions.map((def: string, idx: number) => <li key={idx} className="definition">{def}</li> )}
