@@ -2,7 +2,7 @@
   display: none;
   position: absolute;
   width: 70em;
-  min-height: 25em;
+  min-height: 35em;
   max-height: 60em;
   z-index: 1;
   background-color: whitesmoke;
@@ -11,9 +11,9 @@
   font-size: .25em;
   padding: 2em;
   border: 2px solid #F2DB50;
-  box-shadow: 3px 5px 5px grey;
+  box-shadow: 0px 2px 6px 2px #0000001A;
   align-items: flex-start;
-  top: 13em;
+  top: 14em;
 }
 
 .tooltip h2 {
@@ -24,7 +24,7 @@
 }
 
 .def-list {
-  height: 25em;
+  height: 30em;
   overflow: scroll;
   align-items: flex-start;
   padding: 0px;
