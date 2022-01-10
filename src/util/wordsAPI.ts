@@ -51,10 +51,9 @@ export async function getDetails(word: string) {
         pos: fl,
         definitions: shortdef,
         variation: meta.id,
-        isWord: true
       })
     })
-    return details
+    return ({details, isWord: true})
   }
 }
 
@@ -65,7 +64,10 @@ export async function getWordObjects(reqLetter: string, searchLetters: string) {
       const details = await getDetails(word)
       return ({
         word,
-        details
+        details: {
+          isWord: details.isWord,
+          definitions: details.details
+        }
       })
     })
   )
