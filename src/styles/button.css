@@ -27,6 +27,6 @@ button:focus {
 }
 
 button:disabled {
-  filter: blur(1px);
   cursor: not-allowed;
+  opacity: 0.5;
 }
