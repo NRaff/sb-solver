@@ -25,3 +25,8 @@ button:hover {
 button:focus {
   outline: 2px solid #F2DB50;
 }
+
+button:disabled {
+  filter: blur(1px);
+  cursor: not-allowed;
+}

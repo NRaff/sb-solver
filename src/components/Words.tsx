@@ -4,18 +4,21 @@ import {searchWords, getWordObjects} from "../util/wordsAPI";
 import HintButton from "./HintButton";
 import Word from "./OneWord";
 import "../styles/words.css"
+import Loader from "./Loader";
 
-function setDisplayWords(state: any, setter: Function) {
+function setDisplayWords(state: any, setWords: Function, setLoader: Function) {
+  setLoader(true)
   const reqLetter = state.requiredLetter
   const searchLetters = state.searchLetters
   getWordObjects(reqLetter, searchLetters)
   .then(wordObjs => {
     const words = wordObjs.filter(({ details }) => details.isWord === true)
-    setter(words)
+    setLoader(false)
+    setWords(words)
   })
 }
 
-function reset(context: any, setter: Function) {
+function reset(context: any, setWords: Function) {
   const inputs = document.getElementsByClassName('letter')
   for (let i=0; i<inputs.length; i++) {
     const letter = inputs[i] as HTMLInputElement
@@ -25,7 +28,7 @@ function reset(context: any, setter: Function) {
   context.searchLetters = ""
   const firstLetter = document.getElementById("letter-1")
   firstLetter?.focus()
-  setter([])
+  setWords([])
 }
 
 function isPanagram(state: any, word: string) {
@@ -35,24 +38,31 @@ function isPanagram(state: any, word: string) {
 
 function Words() {
   const context = useContext(SBContext)
+  const letters = context.requiredLetter + context.searchLetters
   const wordsDefault: Array<any> = []
   const [words, setWords] = useState(wordsDefault)
+  const [loading, setLoading] = useState(false)
   return (
     <section className="words-area">
       <section className="buttons">
         <HintButton
-          handleClick={() => setDisplayWords(context, setWords)}
+          handleClick={() => setDisplayWords(context, setWords, setLoading)}
           id={8}
           title="Get Words"
           key="Get Words"
+          isDisabled={words.length !== 0 || loading}
         />
         <HintButton
           handleClick={() => reset(context, setWords)}
           id={9}
           title="Reset"
           key="Reset"
+          isDisabled={false}
         />
       </section>
+      {loading ? 
+        <Loader letters={letters} />: null
+      }
       <ul className="words">
         {words.map((word, idx) => {
           return (

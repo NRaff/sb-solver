@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
 import {searchWords, getDefinition, getWordObjects, getDetails} from './util/wordsAPI';
+import { shuffle } from './components/Loader';
 
 const sbDetails = {
   requiredLetter: "",
@@ -20,7 +21,8 @@ declare global {
     newSearch: Function,
     getDefinition: Function,
     getWordObjects: Function,
-    getDetails: Function
+    getDetails: Function,
+    shuffle: Function
   }
 }
 
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getDefinition = getDefinition
   window.getWordObjects = getWordObjects
   window.getDetails = getDetails
+  window.shuffle = shuffle
 })
 
 ReactDOM.render(
