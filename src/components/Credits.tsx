@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../assets/sb-solver-logo.png"
 import "../styles/credits.css"
 

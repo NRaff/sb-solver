@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { SBContext } from "../index";
 import '../styles/letter.css'
 
@@ -49,7 +49,7 @@ function Letter({required, tab}:props) {
     <input 
       className={`letter${required ? " req-letter" : ""}`}
       type="text" 
-      placeholder="A"
+      placeholder="_"
       value={letter}
       maxLength={1}
       onChange={

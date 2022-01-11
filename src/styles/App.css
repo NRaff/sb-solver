@@ -40,3 +40,19 @@
     transform: rotate(360deg);
   }
 }
+
+.instructions {
+  padding: .5em;
+  background-color: whitesmoke;
+  border-radius: 1em;
+  margin-left: 7em;
+  margin-right: 7em;
+}
+
+.instructions span {
+  padding: 0px;
+  margin: 0px;
+  font-weight: 700;
+  text-decoration: underline .25em #F2DB50;
+  border-radius: 1em;
+}

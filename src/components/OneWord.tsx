@@ -1,4 +1,3 @@
-import React from "react";
 import Tooltip from "./Tooltip";
 
 interface props {
@@ -12,7 +11,6 @@ function Word({wordObj, isPanagram}: props) {
       <p>{wordObj.word}</p>
       <Tooltip wordObj={wordObj} />
     </section>
-    
   )
 }
 
