@@ -2,29 +2,31 @@
   display: none;
   position: absolute;
   width: 70em;
-  min-height: 35em;
-  max-height: 60em;
+  height: fit-content;
   z-index: 1;
   background-color: whitesmoke;
   border-radius: 1em;
   border-radius: 1em;
-  font-size: .25em;
+  font-size: .35em;
   padding: 2em;
   border: 2px solid #F2DB50;
   box-shadow: 0px 2px 6px 2px #0000001A;
   align-items: flex-start;
-  top: 14em;
+  top: 10em;
 }
 
 .tooltip h2 {
   font-weight: 700;
-  font-size: .5em;
+  font-size: 2em;
   height: max-content;
   width: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .def-list {
-  height: 30em;
+  height: fit-content;
+  max-height: 50em;
   overflow: scroll;
   align-items: flex-start;
   padding: 0px;
@@ -41,16 +43,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 2.5px;
-  margin-bottom: 2.5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
   background-color: lightgray;
   border-radius: 5px;
   padding: 5px;
 }
 
 .tooltip-item h3 {
-  font-size: .4em;
   font-weight: 700;
+  padding: 0px;
+  margin: 0px;
+  font-size: 2em;
 }
 
 .tooltip-item header {
@@ -59,13 +63,22 @@
   justify-content: space-between;
   font-style: italic;
   width: 100%;
+  font-size: 2em;
+  padding: 0px;
+  margin-top: -.5em;
+  margin-bottom: 0px;
+  font-weight: normal;
 }
 
 .definitions {
-  padding-left: 14px;
+  padding-left: 16px;
   list-style: circle;
   text-align: left;
   text-transform: none;
+  font-size: 2.5em;
+  margin-top: -.5em;
+  padding-bottom: 5px;
+  font-weight: normal;
 }
 
 .arrow-up {
