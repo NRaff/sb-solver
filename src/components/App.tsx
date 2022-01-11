@@ -8,7 +8,12 @@ function App() {
     <div className="App">
       <Credits />
       <h1>Spelling Bee Solver</h1>
-      <p className='instructions'>Use this tool to un-scramble letters in words. Add the required letter in the <span>yellow</span> space. Note that each character must be unique.</p>
+      <p className='instructions'>
+        Use this tool to un-scramble letters in words. 
+        Add the required letter in the <span>yellow</span> space. 
+        Note that each character must be unique. 
+        Returned words displayed as a yellow <span>pill</span> use all letters provided.
+      </p>
       <Letters numLetters={7} />
       <Words />
     </div>
