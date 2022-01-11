@@ -7,7 +7,6 @@ interface props {
 
 function shuffleLetters(letters: string, setLetters: Function) {
   const allLetters = letters.split('')
-  console.log("did shuffle.")
   setLetters(shuffle(allLetters).join(''))
 }
 
