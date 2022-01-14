@@ -3,7 +3,6 @@ const app = express();
 const port = process.env.PORT || 8080
 const bodyParser = require('body-parser');
 const getWordObjects = require('./api/wordsUtil')
-const fs = require('fs')
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'))
@@ -15,27 +14,15 @@ if (process.env.NODE_ENV === 'production') {
 app.use(bodyParser.urlencoded({
   extended: false
 }))
-app.use(bodyParser.json())
 
-function getAllWords() {
-  const fileURL = __dirname + "/api/words_alpha.txt"
-  try {
-    const data = fs.readFileSync(fileURL, 'utf-8')
-    console.log(data)
-  } catch (err) {
-    console.error(err)
-  }
-}
+app.use(bodyParser.json())
 
 app.get('/words', (req, res) => {
   const {query} = req
   const {reqLetter, letters} = query
   getWordObjects(reqLetter, letters)
   .then(wordObjects => res.send(wordObjects))
-  // res.send()
 })
-
-// fetch('/words').then(res => res.text().then(data => console.log(data)))
 
 app.listen(port, () => {
   console.log(`SB-Solver listening on port ${port}!`)
