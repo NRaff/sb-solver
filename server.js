@@ -4,7 +4,7 @@ const port = process.env.PORT || 8080
 const path = require('path')
 const bodyParser = require('body-parser');
 const getWordObjects = require('./api/wordsUtil')
-const publicPath = path.join(__dirname, '..', 'public');
+const publicPath = path.join(__dirname, '..', 'frontend/public');
 
 if (process.env.NODE_ENV === 'production') {
   // app.use(express.static('frontend/build'))
