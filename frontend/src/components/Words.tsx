@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { SBContext } from "..";
-import {getWordObjects} from "../util/wordsAPI";
+import {requestWords} from "../util/wordsAPI";
 import HintButton from "./HintButton";
 import Word from "./OneWord";
 import "../styles/words.css"
@@ -10,9 +10,10 @@ function setDisplayWords(state: any, setWords: Function, setLoader: Function) {
   setLoader(true)
   const reqLetter = state.requiredLetter
   const searchLetters = state.searchLetters
-  getWordObjects(reqLetter, searchLetters)
-  .then(wordObjs => {
-    const words = wordObjs.filter(({ details }) => details.isWord === true)
+  requestWords(reqLetter, searchLetters)
+  .then(res => {
+    const wordObjs = res.data
+    const words = wordObjs.filter(({ details }: any) => details.isWord === true)
     setLoader(false)
     setWords(words)
   })

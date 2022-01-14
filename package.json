@@ -1,46 +1,28 @@
 {
   "name": "sb-solver",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.0",
-    "@types/node": "^16.11.19",
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
-    "axios": "^0.24.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-scripts": "5.0.0",
-    "redux": "^4.1.2",
-    "typescript": "^4.5.4",
-    "web-vitals": "^2.1.2"
-  },
+  "version": "1.0.0",
+  "description": "- Check out the live app, [here](https://sb-solver.herokuapp.com/)! - _Spelling Bee Solver_  is a web app designed to provide teh solution to the New York Times' spelling bee game, [here](https://www.nytimes.com/puzzles/spelling-bee). # Tech Stack - React - React Hooks (useState, useContext, useEffect) - Merriam-Webster API # Credits - English words have been pulled from _dwyl's_ repository, [here](https://github.com/dwyl/english-words). - Grabbing definitions from Merriam-Webster's API, [here](https://dictionaryapi.com/)",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NRaff/sb-solver.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NRaff/sb-solver/issues"
+  },
+  "homepage": "https://github.com/NRaff/sb-solver#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "concurrently": "^7.0.0",
+    "express": "^4.17.2"
   }
 }
