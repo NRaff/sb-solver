@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const splitWords = require('./api/wordsUtil')
+const fs = require('fs')
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'))
@@ -15,8 +17,19 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
+function getAllWords() {
+  const fileURL = __dirname + "/api/words_alpha.txt"
+  try {
+    const data = fs.readFileSync(fileURL, 'utf-8')
+    console.log(data)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 app.get('/words', (req, res) => {
-  res.send('getting words!')
+  // getAllWords()
+  res.send(splitWords())
 })
 
 // fetch('/words').then(res => res.text().then(data => console.log(data)))

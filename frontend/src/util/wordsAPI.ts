@@ -24,6 +24,15 @@ export async function searchWords(reqLetter: string, searchLetters: string) {
   return availableWords
 }
 
+export function requestWords(reqLetter: string, searchLetters: string) {
+  const letters = (reqLetter + searchLetters).split('')
+  const params = {
+    reqLetter,
+    letters,
+  }
+  // return axios.get()
+}
+
 export async function getDefinition(word: string) {
   const url = `${word}?key=${API_KEY}`
   return axios.get(url)
