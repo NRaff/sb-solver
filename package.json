@@ -1,0 +1,27 @@
+{
+  "name": "sb-solver",
+  "version": "1.0.0",
+  "description": "- Check out the live app, [here](https://sb-solver.herokuapp.com/)! - _Spelling Bee Solver_  is a web app designed to provide teh solution to the New York Times' spelling bee game, [here](https://www.nytimes.com/puzzles/spelling-bee). # Tech Stack - React - React Hooks (useState, useContext, useEffect) - Merriam-Webster API # Credits - English words have been pulled from _dwyl's_ repository, [here](https://github.com/dwyl/english-words). - Grabbing definitions from Merriam-Webster's API, [here](https://dictionaryapi.com/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NRaff/sb-solver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NRaff/sb-solver/issues"
+  },
+  "homepage": "https://github.com/NRaff/sb-solver#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "express": "^4.17.2"
+  }
+}
