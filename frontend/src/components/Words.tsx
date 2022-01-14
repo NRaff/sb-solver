@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { SBContext } from "..";
-import {getWordObjects, requestWords} from "../util/wordsAPI";
+import {requestWords} from "../util/wordsAPI";
 import HintButton from "./HintButton";
 import Word from "./OneWord";
 import "../styles/words.css"
