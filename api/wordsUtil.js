@@ -32,12 +32,6 @@ function filterWords(reqLetter, letters) {
   return availableWords
 }
 
-// ! DEPRECATED
-function getDefinition(word) {
-  const url = `${word}?key=${API_KEY}`
-  return axios.get(url)
-}
-
 async function getDetails(word) {
   const url = `${word}?key=${API_KEY}`
   const { data, status } = await axios.get(url)
