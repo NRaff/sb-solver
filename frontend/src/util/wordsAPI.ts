@@ -1,8 +1,9 @@
 import { API_KEY } from "../configuration/dictionaryKey"
 import axios from "axios"
 
-axios.defaults.baseURL = "https://dictionaryapi.com/api/v3/references/collegiate/json/"
+// axios.defaults.baseURL = "https://dictionaryapi.com/api/v3/references/collegiate/json/"
 
+// ! DEPRECATED
 async function getWords() {
   const data = await fetch('words_alpha.txt')
   const wordBlob = await data.text()
@@ -10,6 +11,7 @@ async function getWords() {
   return words
 }
 
+// ! DEPRECATED
 export async function searchWords(reqLetter: string, searchLetters: string) {
   const words = await getWords()
   const letters = (reqLetter + searchLetters).split('')
@@ -24,18 +26,18 @@ export async function searchWords(reqLetter: string, searchLetters: string) {
   return availableWords
 }
 
+export async function getDefinition(word: string) {
+  const url = `${word}?key=${API_KEY}`
+  return axios.get(url)
+}
+
 export function requestWords(reqLetter: string, searchLetters: string) {
   const letters = (reqLetter + searchLetters).split('')
   const params = {
     reqLetter,
     letters,
   }
-  // return axios.get()
-}
-
-export async function getDefinition(word: string) {
-  const url = `${word}?key=${API_KEY}`
-  return axios.get(url)
+  return axios.get('/words', { params })
 }
 
 export async function getDetails(word: string) {

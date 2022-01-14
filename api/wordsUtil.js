@@ -1,11 +1,8 @@
 const fs = require('fs')
+const API_KEY = require('../config/keys')
+const axios = require('axios')
 
-async function getWords() {
-  const data = await fetch('words_alpha.txt')
-  const wordBlob = await data.text()
-  const words = wordBlob.split('\r\n')
-  return words
-}
+axios.defaults.baseURL = "https://dictionaryapi.com/api/v3/references/collegiate/json/"
 
 function readWords() {
   const fileURL = __dirname + "/words_alpha.txt"
@@ -22,6 +19,70 @@ function splitWords() {
   return splitWords
 }
 
-module.exports = splitWords;
+function filterWords(reqLetter, letters) {
+  const words = splitWords()
+  const availableWords = words.filter((word) => {
+    const chars = word.split('')
+    return (
+      chars.every(char => letters.includes(char)) &&
+      chars.includes(reqLetter) &&
+      chars.length >= 4
+    )
+  })
+  return availableWords
+}
+
+// ! DEPRECATED
+function getDefinition(word) {
+  const url = `${word}?key=${API_KEY}`
+  return axios.get(url)
+}
+
+async function getDetails(word) {
+  const url = `${word}?key=${API_KEY}`
+  const { data, status } = await axios.get(url)
+  if (status !== 200) {
+    return ({
+      status: "Questionable",
+      isWord: false
+    })
+  } else {
+    if (data[0].meta === undefined) {
+      return ({
+        status: "Questionable",
+        isWord: false
+      })
+    }
+    const details = data.map((item) => {
+      const { date, fl, shortdef, meta } = item
+      return ({
+        date: date,
+        pos: fl,
+        definitions: shortdef,
+        variation: meta.id,
+      })
+    })
+    return ({ details, isWord: true })
+  }
+}
+
+async function getWordObjects(reqLetter, searchLetters) {
+  const words = filterWords(reqLetter, searchLetters)
+  const wordDetails = await Promise.all(
+    words.map(async (word) => {
+      const details = await getDetails(word)
+      return ({
+        word,
+        details: {
+          isWord: details.isWord,
+          definitions: details.details
+        }
+      })
+    })
+  )
+  return wordDetails
+}
+
+module.exports = getWordObjects;
 
 
