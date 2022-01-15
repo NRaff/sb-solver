@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
-import { requestWords } from './util/wordsAPI';
 
 const sbDetails = {
   requiredLetter: "",
@@ -17,7 +16,7 @@ declare global {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // window.requestWords = requestWords
+  console.log("dom content loaded")
   ReactDOM.render(
     <React.StrictMode>
       <SBContext.Provider value={sbDetails}>
