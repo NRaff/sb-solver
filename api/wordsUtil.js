@@ -19,7 +19,6 @@ function splitWords() {
   return splitWords
 }
 
-// ! This function doesn't work on mobile for some reason
 function filterWords(reqLetter, letters) {
   const words = splitWords()
   const downcasedLetters = letters.map(letter => letter.toLowerCase())
