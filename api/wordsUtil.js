@@ -19,8 +19,6 @@ function splitWords() {
   return splitWords
 }
 
-
-//! Double check that downcasing is functional
 function filterWords(reqLetter, letters) {
   const words = splitWords()
   const downcasedLetters = letters.map(letter => letter.toLowerCase())
