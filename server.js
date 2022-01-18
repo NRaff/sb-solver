@@ -23,6 +23,7 @@ app.get('/words', (req, res) => {
   const {reqLetter, letters} = query
   getWordObjects(reqLetter, letters)
   .then(wordObjects => res.send(wordObjects))
+  //! Add a catch to this api request in case of errors
 })
 
 app.listen(port, () => {
