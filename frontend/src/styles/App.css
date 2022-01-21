@@ -58,3 +58,10 @@
   background-color: #F2DB50;
   font-weight: 700;
 }
+
+@media screen and (max-width: 800px) {
+  .instructions {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+}

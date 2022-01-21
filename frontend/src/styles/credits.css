@@ -70,3 +70,16 @@ span {
 .credits-area:hover .about-logo {
   border-bottom: 2px solid #F2DB50;
 }
+
+@media screen and (max-width: 800px) {
+  .credits-area {
+    top: auto;
+    left: auto;
+    bottom: -1em;
+    right: 1em;
+  }
+
+  .about-options {
+    margin-top: -11em;
+  }
+}

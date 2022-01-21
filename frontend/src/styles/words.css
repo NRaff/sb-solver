@@ -40,7 +40,6 @@
   .words {
     flex-wrap: nowrap;
     overflow-x: scroll;
-    height: 80em;
     border-radius: 5px;
   }
 
