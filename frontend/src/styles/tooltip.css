@@ -91,3 +91,12 @@
   margin-left: 45%;
   top: -10px;
 }
+
+@media screen and (max-width: 800px) {
+  .arrow-up {
+    display: none;
+  }
+  .tooltip {
+    display: flex;
+  }
+}

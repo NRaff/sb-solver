@@ -35,3 +35,16 @@
   color: black;
   font-weight: 500;
 }
+
+@media screen and (max-width: 800px) {
+  .words {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    height: 18em;
+    border-radius: 5px;
+  }
+
+  .word {
+    width: max-content;
+  }
+}
