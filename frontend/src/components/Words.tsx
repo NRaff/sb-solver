@@ -64,6 +64,7 @@ function Words() {
       {loading ? 
         <Loader letters={letters} />: null
       }
+      {words.length > 0 ? <p className="instructions">{words.length} words found.</p> : null }
       <ul className="words">
         {words.map((word, idx) => {
           return (

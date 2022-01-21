@@ -4,12 +4,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .words {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
+  position: relative;
 }
 
 .word {
@@ -34,4 +36,19 @@
   background-color: #F2DB50;
   color: black;
   font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+  .words {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: visible;
+    border-radius: 5px;
+    height: 40vh;
+  }
+
+  .word {
+    width: 100%;
+    
+  }
 }

@@ -3,7 +3,6 @@
   top: .5em;
   left: .5em;
   height: 5em;
-  padding-bottom: 1em;
   width: 10em;
 }
 
@@ -69,4 +68,25 @@ span {
 
 .credits-area:hover .about-logo {
   border-bottom: 2px solid #F2DB50;
+}
+
+@media screen and (max-width: 800px) {
+  .credits-area {
+    top: auto;
+    left: auto;
+    bottom: -8px;
+    right: auto;
+    width: 95%;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .about-options {
+    margin-top: -11em;
+  }
+
+  .credits-area:hover .about-logo {
+    border-top: 2px solid #F2DB50;
+    border-bottom: none;
+  }
 }

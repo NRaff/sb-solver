@@ -91,3 +91,11 @@
   margin-left: 45%;
   top: -10px;
 }
+
+@media screen and (max-width: 800px) {
+  .tooltip {
+    width: 80vw;
+    max-height: 25vh;
+    height: fit-content;
+  }
+}
