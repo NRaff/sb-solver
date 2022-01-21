@@ -93,10 +93,5 @@
 }
 
 @media screen and (max-width: 800px) {
-  .arrow-up {
-    display: none;
-  }
-  .tooltip {
-    display: flex;
-  }
+
 }
