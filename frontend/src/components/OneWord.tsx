@@ -18,9 +18,7 @@ function scrollTo(e: any) {
 
 function Word({wordObj, isPanagram}: props) {
   return (
-    <section 
-      className={`word${isPanagram ? ' panagram' : ''}`} 
-    >
+    <section className={`word${isPanagram ? ' panagram' : ''}`}>
       <p
         id={`${wordObj.word}`}
         onClick={(e) => scrollTo(e)}

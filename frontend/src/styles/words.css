@@ -44,7 +44,7 @@
     overflow-x: scroll;
     overflow-y: visible;
     border-radius: 5px;
-    /* height: 30em; */
+    height: 40vh;
   }
 
   .word {
