@@ -13,6 +13,8 @@ body {
 }
 
 .App h1 {
+  padding-top: 0px;
+  padding-bottom: 0px;
   margin-bottom: 0em;
 }
 
@@ -39,6 +41,6 @@ body {
   .instructions {
     margin-left: 1em;
     margin-right: 1em;
-    margin-top: .25em;
+    margin-top: 0em;
   }
 }
