@@ -94,8 +94,9 @@
 
 @media screen and (max-width: 800px) {
   .tooltip {
-    width: 80vw;
+    width: 200%;
     max-height: 25vh;
     height: fit-content;
+    top: -10em;
   }
 }

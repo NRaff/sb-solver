@@ -44,10 +44,12 @@
     overflow-x: scroll;
     overflow-y: hidden;
     border-radius: 5px;
+    margin-top: 0em;
+    position: relative;
   }
 
   .word {
-    width: 100%;
+    width: 80vw;
     position: relative;
   }
 }
