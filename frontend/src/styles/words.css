@@ -42,13 +42,12 @@
   .words {
     flex-wrap: nowrap;
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: hidden;
     border-radius: 5px;
-    height: 40vh;
   }
 
   .word {
     width: 100%;
-    
+    position: relative;
   }
 }
