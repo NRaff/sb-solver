@@ -37,8 +37,8 @@ body {
 
 @media screen and (max-width: 800px) {
   .instructions {
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
     margin-top: .25em;
   }
 }

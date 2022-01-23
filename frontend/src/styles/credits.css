@@ -74,18 +74,11 @@ span {
   .credits-area {
     margin-top: .5em;
     position: relative;
-    width: 95%;
+    width: fill-available;
+    margin-right: 1em;
+    margin-left: 1em;
     top: auto;
     left: auto;
     right: auto;
-  }
-
-  .about-options {
-    margin-top: -11em;
-  }
-
-  .credits-area:hover .about-logo {
-    border-top: 2px solid #F2DB50;
-    border-bottom: none;
   }
 }
