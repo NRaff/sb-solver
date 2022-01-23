@@ -99,4 +99,8 @@
     height: fit-content;
     top: -10em;
   }
+
+  .word:hover .tooltip {
+    display: none;
+  }
 }
