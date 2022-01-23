@@ -72,13 +72,12 @@ span {
 
 @media screen and (max-width: 800px) {
   .credits-area {
+    margin-top: .5em;
+    position: relative;
+    width: 95%;
     top: auto;
     left: auto;
-    bottom: -8px;
     right: auto;
-    width: 95%;
-    margin-left: 1em;
-    margin-right: 1em;
   }
 
   .about-options {

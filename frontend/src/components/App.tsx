@@ -6,8 +6,8 @@ import Credits from './Credits';
 function App() {
   return (
     <div className="App">
-      <Credits />
       <h1>Spelling Bee Solver</h1>
+      <Credits />
       <p className='instructions'>
         Use this tool to un-scramble letters in words. 
         Add the required letter in the <span>yellow</span> space. 
