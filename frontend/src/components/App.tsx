@@ -1,3 +1,4 @@
+import '../styles/reset.css'
 import '../styles/App.css';
 import Letters from './Letters';
 import Words from './Words';
