@@ -1,9 +1,9 @@
 .credits-area {
   position: absolute;
-  top: .5em;
+  top: .25em;
   left: .5em;
-  height: 5em;
-  width: 10em;
+  height: 2em;
+  width: fit-content;
 }
 
 .about-logo {
@@ -12,12 +12,12 @@
   justify-content: left;
   background-color: whitesmoke;
   border-radius: 5px;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: .25em;
 }
 
 h3 {
-  margin-left: .5em;
+  margin-left: .25em;
+  font-size: .75em;
 }
 
 img {
@@ -34,8 +34,10 @@ img {
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 0px;
-  width: 100%;
+  width: max-content;
   margin-top: 5px;
+  font-size: .5em;
+  box-shadow: 0px 2px 6px 2px #0000001A;
 }
 
 a {
@@ -62,6 +64,11 @@ span {
 }
 
 .credits-area:hover .about-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-options:hover .about-options {
   display: flex;
   flex-direction: column;
 }
