@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   width: 80%;
   position: relative;
+  margin-top: 1em;
 }
 
 .word {
@@ -42,13 +43,15 @@
   .words {
     flex-wrap: nowrap;
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: hidden;
     border-radius: 5px;
-    height: 40vh;
+    margin-top: 0em;
+    position: relative;
+    width: 100%;
   }
 
   .word {
-    width: 100%;
-    
+    width: 80vw;
+    position: relative;
   }
 }

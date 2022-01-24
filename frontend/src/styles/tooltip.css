@@ -2,7 +2,7 @@
   display: none;
   position: absolute;
   width: 70em;
-  height: fit-content;
+  height: 20em;
   z-index: 1;
   background-color: whitesmoke;
   border-radius: 1em;
@@ -12,7 +12,7 @@
   border: 2px solid #F2DB50;
   box-shadow: 0px 2px 6px 2px #0000001A;
   align-items: flex-start;
-  top: 10em;
+  top: 55px;
 }
 
 .tooltip h2 {
@@ -88,14 +88,19 @@
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #F2DB50;
-  margin-left: 45%;
+  margin-left: 35em;
   top: -10px;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .tooltip {
-    width: 80vw;
+    width: 200%;
     max-height: 25vh;
     height: fit-content;
+    top: -10em;
   }
-}
+
+  .word:hover .tooltip {
+    display: none;
+  }
+} */

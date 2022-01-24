@@ -1,9 +1,9 @@
 .credits-area {
   position: absolute;
-  top: .5em;
+  top: .25em;
   left: .5em;
-  height: 5em;
-  width: 10em;
+  height: 2em;
+  width: fit-content;
 }
 
 .about-logo {
@@ -12,12 +12,12 @@
   justify-content: left;
   background-color: whitesmoke;
   border-radius: 5px;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: .25em;
 }
 
 h3 {
-  margin-left: .5em;
+  margin-left: .25em;
+  font-size: .75em;
 }
 
 img {
@@ -34,8 +34,10 @@ img {
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 0px;
-  width: 100%;
+  width: max-content;
   margin-top: 5px;
+  font-size: .5em;
+  box-shadow: 0px 2px 6px 2px #0000001A;
 }
 
 a {
@@ -66,26 +68,28 @@ span {
   flex-direction: column;
 }
 
+.about-options:hover .about-options {
+  display: flex;
+  flex-direction: column;
+}
+
 .credits-area:hover .about-logo {
   border-bottom: 2px solid #F2DB50;
 }
 
 @media screen and (max-width: 800px) {
   .credits-area {
-    margin-top: .5em;
     position: relative;
-    width: 95%;
+    width: stretch;
+    margin-right: 3vw;
+    margin-left: 3vw;
+    margin-bottom: -.5em;
     top: auto;
     left: auto;
     right: auto;
   }
-
+  
   .about-options {
-    margin-top: -11em;
-  }
-
-  .credits-area:hover .about-logo {
-    border-top: 2px solid #F2DB50;
-    border-bottom: none;
+    width: 100%;
   }
 }

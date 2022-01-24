@@ -1,6 +1,7 @@
 body {
   height: 100vh;
   width: 100vw;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .App {
@@ -13,20 +14,26 @@ body {
 }
 
 .App h1 {
-  margin-bottom: 0em;
+  display: flex;
+  font-size: 2em;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: .25em;
 }
 
 .instructions {
-  padding: .5em;
+  padding: .75em;
   background-color: whitesmoke;
-  border-radius: 1em;
+  border-radius: 5px;
   margin-left: 7em;
   margin-right: 7em;
-  margin-top: 2em;
+  line-height: 1.5em;
 }
 
 .instructions span {
-  padding: .2em;
+  padding: .25em;
   font-size: .75em;
   border-radius: .5em;
   text-decoration: none;
@@ -36,9 +43,17 @@ body {
 }
 
 @media screen and (max-width: 800px) {
+  body {
+    height: 100%;
+  }
+
   .instructions {
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-top: .25em;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: .5em;
+  }
+
+  .App h1 {
+    flex-direction: column;
   }
 }
