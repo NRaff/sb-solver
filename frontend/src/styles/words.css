@@ -45,10 +45,9 @@
     overflow-x: scroll;
     overflow-y: hidden;
     border-radius: 5px;
-    margin-top: 0em;
+    margin-top: 1em;
     position: relative;
     width: 100%;
-    margin-bottom: 0em;
   }
 
   .word {
