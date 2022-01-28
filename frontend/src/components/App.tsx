@@ -3,7 +3,6 @@ import '../styles/App.css';
 import Letters from './Letters';
 import Words from './Words';
 import Credits from './Credits';
-import NewLetters from './NewLetters';
 
 function App() {
   return (
