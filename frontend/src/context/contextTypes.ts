@@ -22,3 +22,7 @@ export interface Detail {
   date: string;
   definitions: Array<string>
 }
+
+export interface UIState {
+  loading: boolean;
+}

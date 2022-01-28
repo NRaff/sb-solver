@@ -20,10 +20,17 @@ const searchLettersSlice = createSlice({
     updateLetter(state, action: PayloadAction<Letter>) {
       const {letterKey, letter} = action.payload
       state[letterKey] = letter
+    },
+    clearLetters(state, action: PayloadAction<SearchLetters>) {
+      const searchLetters = action.payload
+      const keys = Object.keys(searchLetters)
+      keys.forEach((key: any) => {
+        state[key] = ''
+      })
     }
   }
 })
 
-export const {updateLetter} = searchLettersSlice.actions
+export const {updateLetter, clearLetters} = searchLettersSlice.actions
 export const getSearchLetters = (state: RootState) => state.searchLetters
 export default searchLettersSlice.reducer

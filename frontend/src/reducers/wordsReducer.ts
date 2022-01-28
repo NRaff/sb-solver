@@ -14,10 +14,16 @@ const wordsSlice = createSlice({
       words.forEach((word: Word) => {
         state[word.word] = word
       })
+    },
+    clearWords(state, action: PayloadAction<Array<string>>) {
+      const words = action.payload
+      words.forEach((word: string) => {
+        delete state[word]
+      })
     }
   }
 })
 
-export const {setWords} = wordsSlice.actions
+export const {setWords, clearWords} = wordsSlice.actions
 export const getWords = (state: RootState) => state.words
 export default wordsSlice.reducer
