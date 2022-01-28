@@ -1,28 +1,27 @@
-import Letter from "./Letter";
-import {getSearchLetters} from "../reducers/lettersReducer"
-import {useSBSelector} from "../context/hooks"
-import { SearchLetters } from "../context/contextTypes";
+import DisplayLetter from "./Letter"
+import { Letter, SearchLetters } from "../context/contextTypes"
+import { useSBSelector } from "../context/hooks"
+import { getSearchLetters } from "../reducers/lettersReducer"
+import '../styles/letter.css'
 
-function setLetters(num: number) {
-  const letters = []
-  for (let i=0; i<num; i++){
-    letters.push(
-      <Letter
-        required={i === 0 ? true : false}
-        tab={i + 1}
-        key={i}
-      />
-    )
-  }
-  return letters
+function setLetters(letters: SearchLetters) {
+  const letterKeys = Object.keys(letters)
+  const displayLetters: Array<any> = []
+  letterKeys.forEach((letterKey: any) => {
+    const letter = {
+      letterKey,
+      letter: letters[letterKey]
+    } as Letter
+    displayLetters.push(<DisplayLetter key={letterKey} {...letter} />)
+  })
+  return displayLetters
 }
 
 function Letters() {
-  const letters : SearchLetters = useSBSelector(getSearchLetters)
-  const numLetters : number = Object.keys(letters).length
+  const letters: SearchLetters = useSBSelector(getSearchLetters)
   return (
     <section className="letters">
-      {setLetters(numLetters)}
+      {setLetters(letters)}
     </section>
   )
 }

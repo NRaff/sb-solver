@@ -1,66 +1,58 @@
-import { useContext, useState } from "react";
-import { SBContext } from "../index";
-import '../styles/letter.css'
+import { Letter, SearchLetters } from "../context/contextTypes"
+import { useSBSelector, useSBDispatch } from "../context/hooks"
+import { getSearchLetters } from "../reducers/lettersReducer"
+import { updateLetter } from "../reducers/lettersReducer"
 
-function updateRequired(e: any, state: any, setter: Function) {
-  e.preventDefault()
-  setter(e.currentTarget.value)
-  state.requiredLetter = e.currentTarget.value
-  moveToNext(e)
-}
+function DisplayLetter({ letterKey, letter }: Letter) {
+  const isRequired = letterKey < 2
+  const dispatch = useSBDispatch()
+  const letters = useSBSelector(getSearchLetters) as SearchLetters
 
-function updateLetters(e: any, state: any, setter: Function) {
-  e.preventDefault()
-  const reqLetter = state.requiredLetter
-  const letters = state.searchLetters
-  const allLetters = [reqLetter].concat(letters.split(''))
-  const oldLetter = letters[e.currentTarget.tabIndex - 2]
-  const newLetter = e.currentTarget.value
-  if (!allLetters.includes(newLetter)) {
-    setter(e.currentTarget.value)
-    if(e.currentTarget.value !== "") {
-      if (oldLetter) {
-        state.searchLetters = state.searchLetters.replace(oldLetter, newLetter)
-      } else {
-        state.searchLetters += e.currentTarget.value
-      }
-      moveToNext(e)
+  function setPayload(e: any) {
+    return {
+      letterKey: letterKey,
+      letter: e.currentTarget.value
+    } as Letter
+  }
+
+  function moveToNext(e: any) {
+    if (e.currentTarget.value !== "") {
+      const nextID = e.currentTarget.tabIndex + 1
+      const nextEle = document.getElementById(`letter-${nextID}`)
+      nextEle?.focus()
     }
   }
-}
 
-function moveToNext(e: any) {
-  if (e.currentTarget.value !== "") {
-    const nextID = e.currentTarget.tabIndex + 1
-    const nextEle = document.getElementById(`letter-${nextID}`)
-    nextEle?.focus()
+  function handleUpdate(e: any) {
+    if (isUnique(e)) {
+      e.currentTarget.classList.remove("duplicate-err")
+      const payload = setPayload(e)
+      dispatch(updateLetter(payload))
+      moveToNext(e)
+    } else {
+      e.currentTarget.classList.add("duplicate-err")
+    }
   }
-}
 
-interface props {
-  required: boolean,
-  tab: number
-}
+  function isUnique(e: any) {
+    const letter = e.currentTarget.value
+    console.log(Object.values(letters))
+    console.log(`Letter: ${letter}`)
+    return !Object.values(letters).includes(letter)
+  }
 
-function Letter({required, tab}:props) {
-  const [letter, setLetter] = useState("")
-  const details = useContext(SBContext)
   return (
-    <input 
-      className={`letter${required ? " req-letter" : ""}`}
-      type="text" 
+    <input
+      className={`letter${isRequired ? " req-letter" : ""}`}
+      type="text"
       placeholder="_"
       value={letter}
       maxLength={1}
-      onChange={
-        e => required ? 
-        updateRequired(e, details, setLetter) : 
-        updateLetters(e, details, setLetter)
-      }
-      tabIndex={tab}
-      id={`letter-${tab}`}
+      onChange={handleUpdate}
+      tabIndex={letterKey}
+      id={`letter-${letterKey}`}
     />
   )
 }
 
-export default Letter;
+export default DisplayLetter;
