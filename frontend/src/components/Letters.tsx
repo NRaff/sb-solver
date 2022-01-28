@@ -1,8 +1,7 @@
 import Letter from "./Letter";
-
-interface props {
-  numLetters: number
-}
+import {getSearchLetters} from "../reducers/lettersReducer"
+import {useSBSelector} from "../context/hooks"
+import { SearchLetters } from "../context/contextTypes";
 
 function setLetters(num: number) {
   const letters = []
@@ -18,7 +17,9 @@ function setLetters(num: number) {
   return letters
 }
 
-function Letters({numLetters}: props) {
+function Letters() {
+  const letters : SearchLetters = useSBSelector(getSearchLetters)
+  const numLetters : number = Object.keys(letters).length
   return (
     <section className="letters">
       {setLetters(numLetters)}

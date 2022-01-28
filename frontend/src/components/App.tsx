@@ -17,7 +17,7 @@ function App() {
         Note that each character must be unique. 
         Returned words displayed as a yellow <span>pill</span> use all letters provided.
       </p>
-      <Letters numLetters={7} />
+      <Letters />
       <Words />
     </div>
   );
