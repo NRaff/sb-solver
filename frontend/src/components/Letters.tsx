@@ -1,4 +1,4 @@
-import DisplayLetter from "./Letter"
+import DisplayLetter from "./DisplayLetter"
 import { Letter, SearchLetters } from "../context/contextTypes"
 import { useSBSelector } from "../context/hooks"
 import { getSearchLetters } from "../reducers/lettersReducer"
