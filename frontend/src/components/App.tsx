@@ -3,6 +3,7 @@ import '../styles/App.css';
 import Letters from './Letters';
 import Words from './Words';
 import Credits from './Credits';
+import NewLetters from './NewLetters';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         Note that each character must be unique. 
         Returned words displayed as a yellow <span>pill</span> use all letters provided.
       </p>
-      <Letters />
+      {/* <Letters /> */}
+      <NewLetters />
       <Words />
     </div>
   );

@@ -1,6 +1,10 @@
 export interface SearchLetters {
-  [key: string]: string,
   [key: number]: string
+}
+
+export interface Letter {
+  letterKey: number,
+  letter: string
 }
 
 export interface Words {
