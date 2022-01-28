@@ -1,15 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "../context/store"
-
-interface SearchLetters {
-  reqLetter: string,
-  1: string,
-  2: string,
-  3: string,
-  4: string,
-  5: string,
-  6: string
-}
+import {SearchLetters} from "../context/contextTypes"
 
 interface LetterUpdate {
   key: number,
@@ -30,13 +21,13 @@ const searchLettersSlice = createSlice({
   name: 'searchLetters',
   initialState,
   reducers: {
-    updateReqLetter(state, action: PayloadAction<LetterUpdate>) {
-      const {letter} = action.payload
-      state.reqLetter = letter
+    updateLetter(state, action: PayloadAction<LetterUpdate>) {
+      const {key, letter} = action.payload
+      state[key] = letter
     }
   }
 })
 
-export const {updateReqLetter} = searchLettersSlice.actions
+export const {updateLetter} = searchLettersSlice.actions
 export const getSearchLetters = (state: RootState) => state.searchLetters
 export default searchLettersSlice.reducer

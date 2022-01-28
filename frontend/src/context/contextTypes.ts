@@ -1,3 +1,8 @@
+export interface SearchLetters {
+  [key: string]: string,
+  [key: number]: string
+}
+
 export interface Words {
   [key: string]: Word
 }
