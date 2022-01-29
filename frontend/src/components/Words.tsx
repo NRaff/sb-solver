@@ -1,5 +1,5 @@
 import "../styles/words.css"
-import OneWord from "./DisplayWord"
+import DisplayWord from "./DisplayWord"
 import { Word } from "../context/contextTypes";
 import { useSBSelector } from "../context/hooks";
 import { getWordsArray } from "../reducers/wordsReducer";
@@ -19,7 +19,7 @@ function Words() {
       <ul className="words">
         {words.map((word, idx) => {
           return (
-            <OneWord
+            <DisplayWord
               wordObj={word}
               isPanagram={isPanagram(word.word)}
               key={idx}
