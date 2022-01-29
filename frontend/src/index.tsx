@@ -4,6 +4,8 @@ import './styles/index.css';
 import App from './components/App';
 import { Provider } from 'react-redux';
 import { store } from './context/store';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import WordCard from './components/WordCard';
 
 const sbDetails = {
   requiredLetter: "",
@@ -22,7 +24,12 @@ export const SBContext = React.createContext(sbDetails)
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />}></Route>
+          <Route path="/:word" element={<WordCard />}></Route>
+        </Routes>
+      </Router>
     </Provider>
   </React.StrictMode>
   ,
