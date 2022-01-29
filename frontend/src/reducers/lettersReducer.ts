@@ -33,4 +33,5 @@ const searchLettersSlice = createSlice({
 
 export const {updateLetter, clearLetters} = searchLettersSlice.actions
 export const getSearchLetters = (state: RootState) => state.searchLetters
+export const getSearchLettersArray = (state: RootState) => Object.values(state.searchLetters)
 export default searchLettersSlice.reducer

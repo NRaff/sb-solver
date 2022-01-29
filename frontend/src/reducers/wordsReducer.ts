@@ -26,4 +26,5 @@ const wordsSlice = createSlice({
 
 export const {setWords, clearWords} = wordsSlice.actions
 export const getWords = (state: RootState) => state.words
+export const getWordsArray = (state: RootState) => Object.values(state.words)
 export default wordsSlice.reducer

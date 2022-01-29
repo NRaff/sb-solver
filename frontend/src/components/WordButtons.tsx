@@ -20,11 +20,6 @@ export function WordButtons() {
     return Object.keys(words).length > 0
   }
 
-  function isPanagram(word: string) {
-    const letters = Object.values(searchLetters)
-    return letters.every((letter: string) => word.includes(letter))
-  }
-
   function searchWords() {
     const letters = Object.values(searchLetters).slice(1).join('')
     dispatch(toggleLoading())
