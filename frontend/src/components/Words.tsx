@@ -1,5 +1,5 @@
 import "../styles/words.css"
-import OneWord from "../components/OneWord"
+import OneWord from "./DisplayWord"
 import { Word } from "../context/contextTypes";
 import { useSBSelector } from "../context/hooks";
 import { getWordsArray } from "../reducers/wordsReducer";
