@@ -1,12 +1,8 @@
 import TooltipItem from "./TooltipItem";
+import { Word } from "../context/contextTypes"
 import "../styles/tooltip.css"
 
-interface props {
-  wordObj: any
-}
-
-function Tooltip({wordObj}:props) {
-  const {details, word} = wordObj
+function Tooltip({details, word}: Word) {
   return (
     <div className="tooltip">
       <div className="arrow-up"></div>
