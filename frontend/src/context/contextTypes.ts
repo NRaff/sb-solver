@@ -13,7 +13,7 @@ export interface Words {
 
 export interface Word {
   word: string;
-  details: Array<Detail>
+  details: Detail
 }
 
 export interface Detail {

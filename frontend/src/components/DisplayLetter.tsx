@@ -36,8 +36,6 @@ function DisplayLetter({ letterKey, letter }: Letter) {
 
   function isUnique(e: any) {
     const letter = e.currentTarget.value
-    console.log(Object.values(letters))
-    console.log(`Letter: ${letter}`)
     return !Object.values(letters).includes(letter)
   }
 

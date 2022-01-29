@@ -10,7 +10,6 @@ import { isLoading } from '../reducers/uiReducer';
 
 function App() {
   const loading = useSBSelector(isLoading)
-  console.log(loading)
   return (
     <div className="App">
       <h1>

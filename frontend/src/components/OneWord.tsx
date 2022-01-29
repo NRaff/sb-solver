@@ -1,14 +1,14 @@
 import Tooltip from "./Tooltip";
+import {Word} from "../context/contextTypes"
 
 interface props {
-  wordObj: any,
+  wordObj: Word,
   isPanagram: boolean
 }
 
 function scrollTo(e: any) {
   e.preventDefault()
   const el = document.getElementById(e.target.id)
-  console.log(el)
   el?.scrollIntoView({
     behavior: "smooth",
     block: "center",
@@ -16,16 +16,16 @@ function scrollTo(e: any) {
   })
 }
 
-function Word({wordObj, isPanagram}: props) {
+function DisplayWord({wordObj, isPanagram}: props) {
   return (
     <section className={`word${isPanagram ? ' panagram' : ''}`}>
       <p
         id={`${wordObj.word}`}
         onClick={(e) => scrollTo(e)}
       >{wordObj.word}</p>
-      <Tooltip wordObj={wordObj} />
+      <Tooltip {...wordObj} />
     </section>
   )
 }
 
-export default Word;
+export default DisplayWord;
