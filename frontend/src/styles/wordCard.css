@@ -1,0 +1,50 @@
+.word-card {
+  position: absolute;
+  top: 20%;
+  bottom: 30%;
+  width: 80%;
+  background-color: whitesmoke;
+  border: 2px solid #F2DB50;
+  box-shadow: 0px 2px 6px 2px #0000001A;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.word-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 1;
+}
+
+header > span {
+  font-size: 2em;
+}
+
+.word-card header h1 span:nth-child(even) {
+  color: #F2DB50;
+  padding: 0px;
+}
+
+.word-card .def-list {
+  font-size: 0.5em;
+  height: 100%;
+}
+
+.word-card .definitions {
+  padding-left: 1em;
+}
+
+.close-button {
+  position: absolute;
+  top: .25em;
+  right: .5em;
+  border-radius: 5px;
+  background-color: #F2DB50;
+  box-shadow: 0px 2px 6px 2px #0000001A;
+}
+
+.close-button:hover {
+  cursor: pointer;
+  transform: scale(1.01) perspective(1px);
+}

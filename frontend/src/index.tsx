@@ -24,12 +24,7 @@ export const SBContext = React.createContext(sbDetails)
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<App />}></Route>
-          <Route path="/:word" element={<WordCard />}></Route>
-        </Routes>
-      </Router>
+      <App />
     </Provider>
   </React.StrictMode>
   ,

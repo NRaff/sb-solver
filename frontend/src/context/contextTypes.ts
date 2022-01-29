@@ -25,4 +25,5 @@ export interface Detail {
 
 export interface UIState {
   loading: boolean;
+  word: string;
 }
