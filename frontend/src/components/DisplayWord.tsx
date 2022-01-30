@@ -11,6 +11,7 @@ interface props {
 function DisplayWord({wordObj, isPanagram}: props) {
   const dispatch = useSBDispatch()
   console.log(isPanagram)
+  
   function setWord() {
     const {word} = wordObj
     dispatch(updateWord(word))

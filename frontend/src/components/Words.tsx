@@ -10,7 +10,8 @@ function Words() {
   const letters = useSBSelector(getSearchLettersArray) as Array<string>
 
   function isPanagram(word: string) {
-    return letters.every((letter: string) => word.includes(letter))
+    console.log(`${letters} : ${word}`)
+    return letters.every((letter: string) => word.includes(letter.toLowerCase()))
   }
 
   return (
