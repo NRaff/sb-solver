@@ -4,6 +4,8 @@ import './styles/index.css';
 import App from './components/App';
 import { Provider } from 'react-redux';
 import { store } from './context/store';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import WordCard from './components/WordCard';
 
 const sbDetails = {
   requiredLetter: "",

@@ -1,5 +1,5 @@
 import "../styles/words.css"
-import OneWord from "./DisplayWord"
+import DisplayWord from "./DisplayWord"
 import { Word } from "../context/contextTypes";
 import { useSBSelector } from "../context/hooks";
 import { getWordsArray } from "../reducers/wordsReducer";
@@ -10,7 +10,8 @@ function Words() {
   const letters = useSBSelector(getSearchLettersArray) as Array<string>
 
   function isPanagram(word: string) {
-    return letters.every((letter: string) => word.includes(letter))
+    console.log(`${letters} : ${word}`)
+    return letters.every((letter: string) => word.includes(letter.toLowerCase()))
   }
 
   return (
@@ -19,7 +20,7 @@ function Words() {
       <ul className="words">
         {words.map((word, idx) => {
           return (
-            <OneWord
+            <DisplayWord
               wordObj={word}
               isPanagram={isPanagram(word.word)}
               key={idx}

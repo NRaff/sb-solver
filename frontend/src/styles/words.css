@@ -31,6 +31,13 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  box-sizing: content-box;
+}
+
+.word:hover {
+  cursor: pointer;
+  transform: scale(1.09) perspective(1px);
+  z-index: 1;
 }
 
 .panagram {
@@ -45,7 +52,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     border-radius: 5px;
-    margin-top: 1em;
+    margin-bottom: 0em;
     position: relative;
     width: 100%;
   }
