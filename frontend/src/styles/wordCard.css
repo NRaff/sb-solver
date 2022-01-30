@@ -1,13 +1,40 @@
 .word-card {
   position: absolute;
   top: 20%;
-  bottom: 30%;
+  bottom: 25%;
   width: 80%;
   background-color: whitesmoke;
   border: 2px solid #F2DB50;
   box-shadow: 0px 2px 6px 2px #0000001A;
   border-radius: 5px;
   padding: 1em;
+  animation-duration: .3s;
+  animation-name: dropin;
+  z-index: 1;
+}
+
+.close-card {
+  animation-duration: .6s;
+  animation-name: dropout;
+}
+
+@keyframes dropin {
+  from {
+    top: 500%;
+  }
+
+  to {
+    top: 20%;
+  }
+}
+
+@keyframes dropout {
+  from {
+    top: 20%;
+  }
+  to {
+    top: 500%
+  }
 }
 
 .word-card header {
@@ -17,18 +44,13 @@
   opacity: 1;
 }
 
-header > span {
-  font-size: 2em;
+.word-card header > span {
+  font-size: 1.5em;
 }
 
-.word-card header h1 span:nth-child(even) {
-  color: #F2DB50;
-  padding: 0px;
-}
-
-.word-card .def-list {
-  font-size: 0.5em;
-  height: 100%;
+.word-card header h1 span {
+  font-size: 1em;
+  padding: 0em;
 }
 
 .word-card .definitions {
@@ -47,4 +69,17 @@ header > span {
 .close-button:hover {
   cursor: pointer;
   transform: scale(1.01) perspective(1px);
+}
+
+.word-card-defs {
+  position: relative;
+  height: 90%;
+  overflow: scroll;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 0.5em;
+  margin-top: .25em;
+  margin-bottom: 0px;
 }
