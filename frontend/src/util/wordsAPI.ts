@@ -8,3 +8,7 @@ export function requestWords(reqLetter: string, searchLetters: string) {
   }
   return axios.get('/words', { params })
 }
+
+export function getLetters() {
+  return axios.get('https://www.nytimes.com/puzzles/spelling-bee')
+}
