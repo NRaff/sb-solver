@@ -1,10 +1,42 @@
-# About
-- Check out the live app, [here](https://sb-solver.herokuapp.com/)!
-- _Spelling Bee Solver_  is a web app designed to provide teh solution to the New York Times' spelling bee game, [here](https://www.nytimes.com/puzzles/spelling-bee).
-# Tech Stack
-- React
-- React Hooks (useState, useContext, useEffect)
-- Merriam-Webster API
-# Credits
-- English words have been pulled from _dwyl's_ repository, [here](https://github.com/dwyl/english-words).
-- Grabbing definitions from Merriam-Webster's API, [here](https://dictionaryapi.com/)
+# Spelling Bee Solver
+
+A web app that solves the [New York Times Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee) puzzle.
+
+## Tech Stack
+
+- **Runtime**: [Bun](https://bun.sh)
+- **Backend**: [ElysiaJS](https://elysiajs.com) (TypeScript)
+- **Frontend**: [Svelte 5](https://svelte.dev) + [Vite](https://vitejs.dev) (TypeScript)
+- **Dictionary API**: [Merriam-Webster](https://dictionaryapi.com/)
+
+## Setup
+
+```sh
+bun install
+```
+
+Create a `.env` file in the project root:
+
+```
+DICT_KEY=your_merriam_webster_api_key
+```
+
+## Development
+
+```sh
+bun run dev
+```
+
+This starts the Elysia API server on port 8080 and the Vite dev server on port 5173 (with API proxy).
+
+## Production
+
+```sh
+bun run build
+bun run start
+```
+
+## Credits
+
+- English words from [dwyl/english-words](https://github.com/dwyl/english-words)
+- Definitions from [Merriam-Webster's API](https://dictionaryapi.com/)

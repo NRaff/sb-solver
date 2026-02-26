@@ -1,29 +1,26 @@
 {
   "name": "sb-solver",
-  "version": "1.0.0",
-  "description": "- Check out the live app, [here](https://sb-solver.herokuapp.com/)! - _Spelling Bee Solver_  is a web app designed to provide teh solution to the New York Times' spelling bee game, [here](https://www.nytimes.com/puzzles/spelling-bee). # Tech Stack - React - React Hooks (useState, useContext, useEffect) - Merriam-Webster API # Credits - English words have been pulled from _dwyl's_ repository, [here](https://github.com/dwyl/english-words). - Grabbing definitions from Merriam-Webster's API, [here](https://dictionaryapi.com/)",
-  "main": "index.js",
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node server.js",
-    "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend npm run build --prefix frontend"
+    "dev": "concurrently \"bun run dev:server\" \"bun run dev:client\"",
+    "dev:server": "bun --watch src/server.ts",
+    "dev:client": "cd client && bunx vite --port 5173",
+    "build": "cd client && bunx vite build",
+    "start": "NODE_ENV=production bun src/server.ts",
+    "typecheck": "cd client && bunx svelte-check --tsconfig ./tsconfig.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NRaff/sb-solver.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NRaff/sb-solver/issues"
-  },
-  "homepage": "https://github.com/NRaff/sb-solver#readme",
   "dependencies": {
-    "axios": "^0.24.0",
-    "concurrently": "^7.0.0",
-    "express": "^4.17.2"
+    "elysia": "^1.2.0",
+    "@elysiajs/static": "^1.2.0",
+    "@elysiajs/cors": "^1.2.0"
+  },
+  "devDependencies": {
+    "svelte": "^5.0.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "vite": "^6.0.0",
+    "typescript": "^5.7.0",
+    "svelte-check": "^4.0.0",
+    "concurrently": "^9.0.0"
   }
 }
