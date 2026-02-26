@@ -12,12 +12,17 @@ const app = new Elysia()
   .use(wordsRoute);
 
 if (isProduction) {
+  const distPath = join(import.meta.dir, "..", "client", "dist");
+
   app.use(
     staticPlugin({
-      assets: join(import.meta.dir, "..", "client", "dist"),
+      assets: distPath,
       prefix: "/",
     })
   );
+
+  // Static plugin doesn't register root "/" correctly — serve index.html explicitly
+  app.get("/", () => Bun.file(join(distPath, "index.html")));
 }
 
 app.listen(port);
