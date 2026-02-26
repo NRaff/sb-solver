@@ -63,7 +63,7 @@
     padding: 1em;
     animation-duration: 0.3s;
     animation-name: dropin;
-    z-index: 1;
+    z-index: 20;
   }
 
   :global(.close-card) {

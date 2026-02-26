@@ -18,46 +18,110 @@
   function isPanagram(word: string): boolean {
     return letters.every((letter) => word.includes(letter.toLowerCase()));
   }
+
+  let panagrams = $derived(wordsList.filter((w) => isPanagram(w.word)));
+  let rest = $derived(wordsList.filter((w) => !isPanagram(w.word)));
 </script>
 
 <section class="words-area">
-  {#if wordsList.length > 0}
-    <p class="instructions">{wordsList.length} words found</p>
+  {#if panagrams.length > 0}
+    <div class="panagram-section">
+      <h2 class="panagram-heading">
+        {panagrams.length === 1 ? "Panagram" : "Panagrams"}
+      </h2>
+      <ul class="words">
+        {#each panagrams as wordObj (wordObj.word)}
+          <WordPill {wordObj} isPanagram={true} />
+        {/each}
+      </ul>
+    </div>
   {/if}
-  <ul class="words">
-    {#each wordsList as wordObj (wordObj.word)}
-      <WordPill {wordObj} isPanagram={isPanagram(wordObj.word)} />
-    {/each}
-  </ul>
+  {#if rest.length > 0}
+    <div class="words-section">
+      <h2 class="words-heading">Words</h2>
+      <ul class="words">
+        {#each rest as wordObj (wordObj.word)}
+          <WordPill {wordObj} isPanagram={false} />
+        {/each}
+      </ul>
+    </div>
+  {/if}
 </section>
 
 <style>
   .words-area {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    padding: 0.5em 0;
+  }
+
+  .panagram-section {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75em 1em;
+    margin-top: 1em;
+    border: 2px solid #f2db50;
+    border-radius: 8px;
+    background-color: #fffce6;
+  }
+
+  .panagram-heading {
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8a7600;
+    margin: 0;
+  }
+
+  .panagram-section .words,
+  .words-section .words {
+    margin-top: 0.5em;
+  }
+
+  .words-section {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75em 1em;
+    margin-top: 1em;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  .words-heading {
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #555;
+    margin: 0;
   }
 
   .words {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    justify-content: center;
+    width: 70%;
     position: relative;
     margin-top: 1em;
   }
 
   @media screen and (max-width: 800px) {
     .words {
-      flex-wrap: nowrap;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      border-radius: 5px;
-      margin-bottom: 0em;
-      position: relative;
       width: 100%;
+      justify-content: center;
+    }
+
+    .panagram-section,
+    .words-section {
+      width: 90%;
     }
   }
 </style>

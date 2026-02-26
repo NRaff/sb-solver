@@ -7,24 +7,30 @@ let cachedWords: string[] | null = null;
 
 function loadWords(): string[] {
   if (cachedWords) return cachedWords;
-  const filePath = join(import.meta.dir, "..", "data", "words_alpha.txt");
-  const data = readFileSync(filePath, "utf-8");
-  cachedWords = data.split(/\r?\n/).filter(Boolean);
+  const dataDir = join(import.meta.dir, "..", "data");
+  const ta = readFileSync(join(dataDir, "wordle-Ta.txt"), "utf-8");
+  const la = readFileSync(join(dataDir, "wordle-La.txt"), "utf-8");
+  const alpha = readFileSync(join(dataDir, "words_alpha.txt"), "utf-8");
+  const all = [
+    ...ta.split(/\r?\n/).filter(Boolean),
+    ...la.split(/\r?\n/).filter(Boolean),
+    ...alpha.split(/\r?\n/).filter(Boolean),
+  ];
+  cachedWords = [...new Set(all)];
   return cachedWords;
 }
 
 export function filterWords(reqLetter: string, letters: string[]): string[] {
   const words = loadWords();
-  const lowerLetters = letters.map((l) => l.toLowerCase());
+  const allowed = new Set(letters.map((l) => l.toLowerCase()));
   const lowerReq = reqLetter.toLowerCase();
 
   return words.filter((word) => {
-    const chars = word.split("");
-    return (
-      chars.length >= 4 &&
-      chars.includes(lowerReq) &&
-      chars.every((char) => lowerLetters.includes(char))
-    );
+    if (word.length < 4 || !word.includes(lowerReq)) return false;
+    for (const char of word) {
+      if (!allowed.has(char)) return false;
+    }
+    return true;
   });
 }
 

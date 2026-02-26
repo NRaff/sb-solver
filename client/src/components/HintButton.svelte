@@ -23,13 +23,13 @@
     background-color: white;
     border-radius: 5px;
     font-size: 1em;
-    width: max-content;
+    flex: 1;
     min-height: 2.5em;
     border: 1px solid #dcdcdc;
     letter-spacing: 0.01em;
     cursor: pointer;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
   }
 
   button:hover {
