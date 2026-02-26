@@ -4,8 +4,8 @@
   import { searchLettersArray } from "../lib/stores/letters";
   import type { Word } from "../lib/types";
 
-  let wordsList: Word[] = [];
-  let letters: string[] = [];
+  let wordsList = $state<Word[]>([]);
+  let letters = $state<string[]>([]);
 
   wordsArray.subscribe((value) => {
     wordsList = value;
