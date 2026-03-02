@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import Bun from "bun";
 import { join } from "path";
 
 const API_BASE = "https://dictionaryapi.com/api/v3/references/collegiate/json/";
@@ -83,7 +84,7 @@ export interface WordObject {
 
 export async function getWordObjects(
   reqLetter: string,
-  searchLetters: string[]
+  searchLetters: string[],
 ): Promise<WordObject[]> {
   const words = filterWords(reqLetter, searchLetters);
 
@@ -97,7 +98,7 @@ export async function getWordObjects(
           definitions: details.details,
         },
       };
-    })
+    }),
   );
 
   return wordDetails;
